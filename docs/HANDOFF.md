@@ -1,6 +1,11 @@
 # Twilight Tracker · Agent Handoff
 
-**Last updated:** 2026-10-29 · Claude · ## 1.3.111726b — Links follow the move to the Centific-DC org (11/17/2026)
+**Last updated:** 2026-10-29 · Claude · ## 1.3.111726c — Wrap: two layout fixes found while exporting the deck to PowerPoint (11/17/2026)
+- QA dial: the "460 review decisions" number rendered at label size because `.dial-center span` also matched the count-up span inside `<b>`; now `.dial-center > span`.
+- Nights calendar: square days were sized by column width, so on a 1920×1080 screen the last week (Oct 26) fell off the bottom. `.cal` now caps its width from the viewport height and its row count (`--rows`).
+- Leadership deck export: Atlas/Twilight-Wrap-Leadership.pptx (13 full-bleed 16:9 stills of the admin deck with speaker notes).
+
+## 1.3.111726b — Links follow the move to the Centific-DC org (11/17/2026)
 - The repo moved to Centific-DC; GitHub Pages now serves https://centific-dc.github.io/Twilight-Tracker/ and the old dk-centific.github.io address returns 404 (no redirect).
 - Updated `TWILIGHT_APP_PUBLIC_URL` (twilight.js, used as the app link in generated messages), `orbit.html`'s forward, the canonical tag in `index.html`, README and AGENTS.
 - `PRODUCTION1_STATUS_PROXY_URL` stays on dk-centific.github.io/twilight-production1-status: that repo did not move and still serves.

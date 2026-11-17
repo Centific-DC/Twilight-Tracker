@@ -170,7 +170,7 @@
                 ? 'Tap a night to see how many teams were out with you.'
                 : `${busiestCount > 1 ? `${busiestCount} nights` : fmtD(busiest[0])} had ${busiest[1]} teams out at once. Tap any night.`}</p>
             </div>
-            <div class="cal" role="group" aria-label="Season calendar">
+            <div class="cal" role="group" aria-label="Season calendar" style="--rows:${weeks.length + 1}">
               <div class="cal-head" aria-hidden="true"><span></span>${['M', 'T', 'W', 'T', 'F', 'S', 'S'].map(d => `<span>${d}</span>`).join('')}</div>
               ${rows}
             </div>

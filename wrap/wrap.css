@@ -212,7 +212,9 @@ img[src$='centific-mark-cyan.png'] { filter: brightness(0) invert(1); }
 .cue::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--lamp-hi); box-shadow: 0 0 12px 2px var(--lamp-glow); }
 
 /* ---------- Nights strip ---------- */
-.cal { display: grid; gap: clamp(6px, 1.2vh, 12px); }
+.cal { display: grid; gap: clamp(6px, 1.2vh, 12px); width: 100%; justify-self: center;
+  /* Square days sized by width overflowed short screens (a 1080p projector cut off the last week); cap the width so every week fits. */
+  max-width: calc((100dvh - 260px) / var(--rows, 8) * 7 + 5.5em); }
 .cal-week { display: grid; grid-template-columns: 4.2em repeat(7, minmax(0, 1fr)); gap: clamp(4px, 0.8vw, 10px); align-items: center; }
 .cal-week .wk { font-size: 0.75rem; color: var(--ink-3); font-family: var(--font-num); }
 .day {
@@ -327,7 +329,7 @@ img[src$='centific-mark-cyan.png'] { filter: brightness(0) invert(1); }
 .dial .tick { fill: var(--ink-3); font-family: var(--font-num); font-size: 11px; }
 .dial-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 4px; pointer-events: none; }
 .dial-center b { font-size: var(--d-m); font-weight: 800; letter-spacing: -0.03em; }
-.dial-center span { font-size: 0.85rem; color: var(--ink-3); }
+.dial-center > span { font-size: 0.85rem; color: var(--ink-3); }
 .clocks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .clock { display: grid; gap: 2px; }
 .clock b { font-size: var(--d-m); font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
