@@ -4,7 +4,7 @@ This is the **Twilight** data-collection app.
 
 ## Open the app
 
-**https://dk-centific.github.io/Twilight-Tracker/**
+**https://centific-dc.github.io/Twilight-Tracker/**
 
 You should see a login screen titled **Project Twilight**.
 

@@ -1,6 +1,11 @@
 # Twilight Tracker · Agent Handoff
 
-**Last updated:** 2026-10-29 · Claude · ## 1.3.111726a — Wrap: share version for people outside Twilight (11/17/2026)
+**Last updated:** 2026-10-29 · Claude · ## 1.3.111726b — Links follow the move to the Centific-DC org (11/17/2026)
+- The repo moved to Centific-DC; GitHub Pages now serves https://centific-dc.github.io/Twilight-Tracker/ and the old dk-centific.github.io address returns 404 (no redirect).
+- Updated `TWILIGHT_APP_PUBLIC_URL` (twilight.js, used as the app link in generated messages), `orbit.html`'s forward, the canonical tag in `index.html`, README and AGENTS.
+- `PRODUCTION1_STATUS_PROXY_URL` stays on dk-centific.github.io/twilight-production1-status: that repo did not move and still serves.
+
+## 1.3.111726a — Wrap: share version for people outside Twilight (11/17/2026)
 - New page `wrap/share/` (link: /Twilight-Tracker/wrap/share/): the project deck without the Scorecard and Spotlight slides, no links into the app, `?mod=` ignored, noindex. It is `wrap/index.html` with `data-share="1"` and `<base href="../">`; keep the two in step when the shell changes.
 - `wrap.js` skips loading `data/scorecard.json` when `SHARE` is set. The in-app `wrap/` deck is unchanged.
 - The scorecard file is still a public file on GitHub Pages; the share page just never loads or shows it.

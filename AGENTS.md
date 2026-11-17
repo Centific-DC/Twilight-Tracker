@@ -23,9 +23,9 @@
 | **Moderator** | Field moderators | Session flow, stations, Lakitu, arrival, panic/help |
 | **Reviewer** | QA reviewers | Approval queue, Lakitu/Ring side panel |
 
-**Live site:** https://dk-centific.github.io/Twilight-Tracker/
+**Live site:** https://centific-dc.github.io/Twilight-Tracker/
 
-**Repo:** https://github.com/DK-Centific/Twilight-Tracker
+**Repo:** https://github.com/Centific-DC/Twilight-Tracker
 
 **Owner:** David (Product Manager). Treat him as non-technical — give click-by-click steps when he needs to act.
 
