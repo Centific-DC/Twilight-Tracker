@@ -88,5 +88,13 @@ assert('scorecard names are first names only', scp.moderators.every(m => /^[A-Z]
 assert('scorecard scores sit between 0 and 100', scp.moderators.every(m => m.score == null || (m.score >= 0 && m.score <= 100)));
 assert('scorecard approvals never exceed completed', scp.moderators.every(m => m.approved + m.rejected <= m.completed));
 
+const share = fs.readFileSync(path.join(root, 'wrap', 'share', 'index.html'), 'utf8');
+const wrapSrc = fs.readFileSync(path.join(root, 'wrap', 'wrap.js'), 'utf8');
+const ver = (src.match(/const APP_VERSION = '([^']+)'/) || [])[1];
+assert('share page is flagged and resolves assets from wrap/', /data-share="1"/.test(share) && /<base href="\.\.\/">/.test(share));
+assert('share page has no link into the app', !/<a [^>]*href="\.\.\/"/.test(share));
+assert('share page loads the same Wrap version', share.includes(`wrap.js?v=${ver}`) && share.includes(`wrap.css?v=${ver}`));
+assert('share deck never loads the scorecard', /SHARE \? null : get\('data\/scorecard\.json'\)/.test(wrapSrc));
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

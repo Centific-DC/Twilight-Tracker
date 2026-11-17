@@ -1,6 +1,11 @@
 # Twilight Tracker · Agent Handoff
 
-**Last updated:** 2026-10-29 · Claude · ## 1.3.103026b — Wrap: closing ledger counts the team only (10/30/2026)
+**Last updated:** 2026-10-29 · Claude · ## 1.3.111726a — Wrap: share version for people outside Twilight (11/17/2026)
+- New page `wrap/share/` (link: /Twilight-Tracker/wrap/share/): the project deck without the Scorecard and Spotlight slides, no links into the app, `?mod=` ignored, noindex. It is `wrap/index.html` with `data-share="1"` and `<base href="../">`; keep the two in step when the shell changes.
+- `wrap.js` skips loading `data/scorecard.json` when `SHARE` is set. The in-app `wrap/` deck is unchanged.
+- The scorecard file is still a public file on GitHub Pages; the share page just never loads or shows it.
+
+## 1.3.103026b — Wrap: closing ledger counts the team only (10/30/2026)
 - Last slide: "Team: moderators, QA, admins" = 25 (participants left out); moderator pages read "N homes · 25 on the team". The People slide still counts everyone (131).
 - Approval slide QA counts verified against the Production1 Google Sheet: identical by week and month (completed sessions only; cancelled never counted).
 

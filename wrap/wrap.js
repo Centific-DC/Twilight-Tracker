@@ -50,11 +50,14 @@
   const markSvg = () => `<svg class="mark-svg" viewBox="0 0 512 512" aria-hidden="true">${CHEVRONS.map(([d, x, y], i) =>
     `<path d="${d}" style="--i:${i};--tx:${x}px;--ty:${y}px"/>`).join('')}</svg>`;
 
+  // The share page (wrap/share/) is the deck for people outside Twilight: no moderator scorecard, no links into the app.
+  const SHARE = document.documentElement.dataset.share === '1';
+
   /* ---------------- Data ---------------- */
   async function load() {
     const get = url => fetch(url, { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`); return r.json(); });
     const [data, manual, scorecard] = await Promise.all([
-      get('data/wrap-data.json'), get('data/wrap-manual.json').catch(() => ({})), get('data/scorecard.json').catch(() => null),
+      get('data/wrap-data.json'), get('data/wrap-manual.json').catch(() => ({})), SHARE ? null : get('data/scorecard.json').catch(() => null),
     ]);
     return { data, manual, scorecard };
   }
@@ -1043,7 +1046,7 @@
                 : 'Thank you to every moderator, host family, reviewer and admin who made Project Twilight happen.'}</p>
               <div class="actions rise" style="--d:1000">
                 <button type="button" class="btn primary" data-i data-replay>Watch again</button>
-                <a class="btn" href="../" data-i>Open Twilight</a>
+                ${SHARE ? '' : '<a class="btn" href="../" data-i>Open Twilight</a>'}
               </div>
               <p class="asof">Centific Data Collection · Project Twilight · ${MONTHS[asOf.getMonth()]} ${asOf.getDate()}, ${asOf.getFullYear()}</p>
             </div>
@@ -1210,7 +1213,7 @@
   /* ---------------- Boot ---------------- */
   load().then(({ data, manual, scorecard }) => {
     applyLog(data);
-    const raw = params.get('mod');
+    const raw = SHARE ? null : params.get('mod');
     const mod = findModerator(data, raw);
     const scenes = buildScenes({ data, manual, scorecard }, mod);
     if (raw && !mod) console.warn(`[Twilight Wrap] No moderator named "${raw}" in the snapshot; showing the project Wrap.`);
